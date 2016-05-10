@@ -30,7 +30,7 @@ gem 'urss'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'RMagick'
+gem "rmagick"
 gem "carrierwave"
 gem 'populator'
 gem 'will_paginate'
