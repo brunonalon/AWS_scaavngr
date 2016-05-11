@@ -7,6 +7,9 @@ class ItemsController < ApplicationController
      elsif params[:filter] == '2'
        @item = item_filter(current_user.get_nearby_items(params[:distance]), params[:current_item_id])
      end
+     pp '============Test==========='
+     pp params[:filter]
+     pp @item
      respond_with(@item)
    else
      redirect_to root_url

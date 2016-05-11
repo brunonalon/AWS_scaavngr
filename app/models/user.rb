@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   has_many :disliked_items, through: :dislikes, class_name: 'Item', source: :item
   has_many :conversations, :foreign_key => :sender_id  # has_many :sender, foreign_key: 'user_sender_id', :class_name => 'Message'
   # has_many :receiver, foreign_key: 'user_receiver_id', :class_name => 'Message'
-  #geocoded_by :ip_address   # can also be an IP address
-  #after_validation :geocode
+  geocoded_by :ip_address   # can also be an IP address
+  after_validation :geocode
 
   def self.from_omniauth(auth)
     where(uid: auth.uid).first_or_create do |user|
@@ -36,6 +36,7 @@ class User < ActiveRecord::Base
     c
   end
   def get_nearby_items(distance)
+    pp distance
     d = distance.to_i * 400
     items_near_me = []
     items_arr = []

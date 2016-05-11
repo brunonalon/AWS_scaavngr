@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     @user.ip_address = ip_address
     @user.save
     session[:user_id] = @user.id
-    # redirect_to items_path
+    redirect_to items_path
   end
 
   def destroy
